@@ -1,0 +1,20 @@
+{
+  "name": "realtime-pizza",
+  "version": "1.0.0",
+  "description": "This is our realtime pizza app",
+  "main": "index.js",
+  "author": "Zainab Akkad",
+  "scripts": {
+    "serve": "node serve.js",
+    "dev": "nodemon server.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "ejs": "^3.1.8",
+    "express": "^4.18.1",
+    "express-ejs-layouts": "^2.5.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
