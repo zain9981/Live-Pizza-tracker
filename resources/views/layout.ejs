@@ -1,0 +1,46 @@
+<!-- Repetition code -->
+<!-- Navigation bar is same for all pages therefore we are using layout -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,700;1,300;1,400&family=Libre+Baskerville&family=Playfair+Display&family=Roboto+Mono:wght@200&family=Varela+Round&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/tailwindcss@^2.2.7/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+
+
+    <!--This is by default class of tailwind css. Here the container is not in center by default therefore we have to use "mx auto" -->
+    <!-- now to get the rest of the list on right side use class flex which is again a class of tailwind css and to aling text vertically in center we use "items-center". Now to push the list on the right side we use "justify-between"-->
+    <nav class="container mx-auto flex items-center justify-between">
+        <div class="logo">
+            <!-- for left logo in navigation bar -->
+            <img src="/img/logo.jpg" alt="logo">
+        </div>
+        <div>
+            <!-- for right side of navigation bar -->
+            <!-- to get text in same line horizontally we use class flex items-center-->
+            <ul class="flex items-center">
+                <!-- ml-6 means margin left this is also a tailwnd css class -->
+                <li class="ml-6"><a href="#">Menu</a></li>
+                <li class="ml-6"><a href="#">Offers</a></li>
+                <li class="ml-6"><a href="/register">Register</a></li>
+                <li class="ml-6"><a href="/login">Login</a></li>
+                <li class="ml-6"><a href="/cart"><img src="/img/cart.png" alt=""></a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- For dynamic content of all the pages -->
+    <%- body %>
+
+    <script src="/js/app.js"></script>
+    
+</body>
+</html>

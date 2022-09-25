@@ -1,0 +1,81 @@
+body {
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  -webkit-font-smoothing: antialised;
+  color: red;
+  padding: 0;
+  height: 4000px;
+}
+
+.logo img {
+  border: 1px solid #ddd;
+  border-radius: 50%;
+  padding: 6px;
+  width: 80px;
+}
+
+nav li img {
+  width: 60px;
+}
+
+nav li a:hover {
+  transition: all 0.3 ease-in-out;
+  color: #0a0400;
+}
+
+.pizzaImage img {
+  height: 100vh;
+}
+
+.text1 {
+  font-size: 40px;
+  color: rgb(243, 215, 170);
+  font-family: "Courier New", Courier, monospace;
+}
+
+.text2 {
+  font-size: 60px;
+  color: wheat;
+  font-family: "sans-serif";
+}
+
+.text-block {
+  color: wheat;
+  position: absolute;
+  bottom: 180px;
+  right: 90px;
+}
+
+.size {
+  background: #caaaaa;
+}
+
+.add-to-card {
+  border: 2px solid #0a0400;
+  color: #0a0400;
+}
+.add-to-card:hover {
+  background: #0a0400;
+  border-color: white;
+  color: white;
+  transition: all 0.3 ease-in-out;
+}
+
+.btn-primary {
+  background-color: red;
+  transition: all 0.3 ease-in-out;
+}
+.btn-primary:hover {
+  background: #d86a6a;
+}
+
+section.cart {
+  background: rgb(240, 221, 224);
+}
+section.cart .amount {
+  color: #0a0400;
+}
+
+section.login {
+  background: rgb(240, 221, 224);
+  min-height: 100vh;
+}

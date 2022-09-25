@@ -6,15 +6,24 @@
   "author": "Zainab Akkad",
   "scripts": {
     "serve": "node serve.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "npm run development -- --watch",
+    "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress  --config=node_modules/laravel-mix/setup/webpack.config.js"
   },
   "license": "MIT",
   "dependencies": {
+    "cross-env": "^7.0.3",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
-    "express-ejs-layouts": "^2.5.1"
+    "express-ejs-layouts": "^2.5.1",
+    "touch-cli": "^0.0.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "laravel-mix": "^6.0.49",
+    "nodemon": "^2.0.20",
+    "resolve-url-loader": "5.0.0",
+    "sass": "^1.55.0",
+    "sass-loader": "12.1.0"
   }
 }
