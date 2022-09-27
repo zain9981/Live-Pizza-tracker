@@ -13,10 +13,17 @@
   },
   "license": "MIT",
   "dependencies": {
+    "axios": "^0.27.2",
+    "connect-mongo": "3",
     "cross-env": "^7.0.3",
+    "dotenv": "^16.0.2",
     "ejs": "^3.1.8",
     "express": "^4.18.1",
     "express-ejs-layouts": "^2.5.1",
+    "express-flash": "^0.0.2",
+    "express-session": "^1.17.3",
+    "mongoose": "^6.6.1",
+    "noty": "^3.2.0-beta-deprecated",
     "touch-cli": "^0.0.1"
   },
   "devDependencies": {

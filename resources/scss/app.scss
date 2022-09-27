@@ -1,4 +1,6 @@
 @import './variables';
+@import '~noty/src/noty.scss';
+@import '~noty/src/themes/mint.scss';
 
 body{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -42,7 +44,7 @@ body{
   .size{
     background: $secondary;
   }
-  .add-to-card{
+  .add-to-cart{
     border: 2px solid $primary;
     color: $primary;
     &:hover{
@@ -67,7 +69,7 @@ body{
   }
   section.login{
     background: rgb(240, 221, 224);
-    min-height: calc(100vh-86px);
+    // min-height: calc(100vh-86px);
 
     a {
       color: $primary;
@@ -75,5 +77,10 @@ body{
         color: $primary-hover;
       }
     }
+  }
+  .noty_theme__mint{
+    border-radius: 50px!important;
+    padding-left: 8px!important;
+    font-family: 'Times New Roman', Times, serif;
   }
   
