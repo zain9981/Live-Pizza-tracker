@@ -1,16 +1,15 @@
 require('dotenv').config()
-
 const express = require('express')
 const app = express()
 const ejs = require('ejs')
 const path = require('path')
 const expressLayout = require('express-ejs-layouts')
 const PORT = process.env.PORT || 3000
-const mongoose = require("mongoose");
+const mongoose = require("mongoose")
 const session = require('express-session')
 const flash = require('express-flash')
 const MongoDbStore = require('connect-mongo')(session)
-
+const passport = require('passport')
 
 
 //  database connection with mongoose
@@ -18,7 +17,9 @@ const MongoDbStore = require('connect-mongo')(session)
         useNewUrlParser: true,
         useUnifiedTopology: true
     }).then(() => console.log("connection successful"))
-    .catch((err) => console.log(err));
+    .catch((err) => console.log(err))
+
+
 
 //Session store
 let mongoStore = new MongoDbStore({
@@ -43,15 +44,27 @@ app.use(session({
     // cookie: { maxAge: 1000*60*60}
 }))
 
+//passport config
+//for this we will keep the code in different file and then import it here: app/config/passport.js
+// const passportInit = require('./app/config/passport')
+//we will call the function passport from line no.13
+const passportInit = require('./app/config/passport')
+passportInit(passport)
+app.use(passport.initialize())
+app.use(passport.session())
 
+//to display messages on front end when request is sent for eg. error msgs
 app.use(flash())
 //Assets
 app.use(express.static('public'))
+//for url encoded data to call register link on the server which is on authController
+app.use(express.urlencoded ({extended: false}))
 app.use(express.json())
 
 //Global middleware
 app.use((req, res, next)=>{
     res.locals.session = req.session
+    res.locals.user = req.user
     next()
 })
 
