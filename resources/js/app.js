@@ -5,6 +5,9 @@ import axios from 'axios'
 //for notification tag we are using noty
 import Noty from 'noty'
 
+//to import the admin.js module
+import {initAdmin} from './admin'
+
 let addToCart = document.querySelectorAll('.add-to-cart')
 let cartCounter = document.querySelector('#cartCounter')
 
@@ -42,3 +45,14 @@ addToCart.forEach((btn)=>{
         // console.log(pizza)
     })
 })
+
+//Remove alert message after x seconds
+const alertMsg = document.querySelector('#success-alert')
+if(alertMsg){
+    setTimeout(()=>{
+        alertMsg.remove()
+    },2000)
+}
+
+//call admin.js file
+initAdmin()

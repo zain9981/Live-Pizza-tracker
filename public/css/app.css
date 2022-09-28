@@ -344,6 +344,14 @@ nav li a:hover {
   background: #d86a6a;
 }
 
+.btnRemove {
+  background-color: black;
+  transition: all 0.3 ease-in-out;
+}
+.btnRemove:hover {
+  background: gray;
+}
+
 section.cart {
   background: rgb(240, 221, 224);
 }
@@ -365,4 +373,8 @@ section.login a:hover {
   border-radius: 50px !important;
   padding-left: 8px !important;
   font-family: "Times New Roman", Times, serif;
+}
+
+a.link {
+  color: green;
 }

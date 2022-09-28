@@ -61,6 +61,13 @@ body{
       background: $primary-hover;
     }
   }
+  .btnRemove{
+    background-color: black;
+    transition: $smooth;
+    &:hover{
+      background: gray;
+    }
+  }
   section.cart{
     background: rgb(240, 221, 224);
     .amount{
@@ -84,3 +91,6 @@ body{
     font-family: 'Times New Roman', Times, serif;
   }
   
+a.link{
+  color: green;
+}  

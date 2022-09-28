@@ -21,14 +21,14 @@
     <nav class="container mx-auto flex items-center justify-between">
         <div class="logo">
             <!-- for left logo in navigation bar -->
-            <img src="/img/logo.jpg" alt="logo">
+            <a href="/"><img src="/img/logo.jpg" alt="logo"></a>
         </div>
         <div>
             <!-- for right side of navigation bar -->
             <!-- to get text in same line horizontally we use class flex items-center-->
             <ul class="flex items-center">
                 <!-- ml-6 means margin left this is also a tailwnd css class -->
-                <li class="ml-6"><a href="#">Menu</a></li>
+                <li class="ml-6"><a href="/">Menu</a></li>
                 <li class="ml-6"><a href="#">Offers</a></li>
                 <% if(user) { %>
                 <li class="ml-6">
