@@ -10,6 +10,7 @@ const session = require('express-session')
 const flash = require('express-flash')
 const MongoDbStore = require('connect-mongo')(session)
 const passport = require('passport')
+const Emitter = require('events')
 
 
 //  database connection with mongoose
@@ -28,6 +29,12 @@ let mongoStore = new MongoDbStore({
     collection: 'sessions',
     url: 'mongodb://localhost:27017/pizza'
 })
+
+//-----------------------EVENT EMITTER TO SEND MESSAGE OF UPDATION TO SOCKET FOR THE ROOM WE CREATED AND RECIEVE THE UPDATION ON CLIENT SIDE------------------------------
+//import event module on line no.13👆
+const eventEmitter = new Emitter()
+app.set('eventEmitter', eventEmitter)
+
 
 //Session Configuration
 app.use(session({
@@ -49,6 +56,7 @@ app.use(session({
 // const passportInit = require('./app/config/passport')
 //we will call the function passport from line no.13
 const passportInit = require('./app/config/passport')
+const { resolve } = require('path')
 passportInit(passport)
 app.use(passport.initialize())
 app.use(passport.session())
@@ -76,17 +84,32 @@ app.set('view engine', 'ejs')
 require('./routes/web')(app) 
 
 
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
 })
 
+//----------------------SOCKET------------------------------
+
+const io = require('socket.io')(server)
+io.on('connection', (socket)=>{
+    //join 
+    // console.log(socket.id)
+    socket.on('join', (orderId) => {
+        socket.join(orderId)
+    })
+})
 
 
+eventEmitter.on('orderUpdated', (data)=>{
+    io.to(`order_${data.id}`).emit('orderUpdated', data)
+    
+})
 
 
-
-
-
+//-------listen orderPlaced from customers->orderController->lineNo.29
+eventEmitter.on('orderPlaced', (data)=>{
+    io.to('adminRoom').emit('orderPlaced', data)
+})
 
 
 

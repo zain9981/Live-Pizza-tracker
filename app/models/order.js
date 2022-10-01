@@ -11,7 +11,8 @@ const orderSchema =new Schema({
 
     items:{
     type: Object, 
-    required: true}
+    required: true
+}
     ,
     
     phone:{
