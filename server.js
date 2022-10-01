@@ -14,7 +14,8 @@ const Emitter = require('events')
 
 
 //  database connection with mongoose
- mongoose.connect("mongodb://localhost/pizza", {
+const url = process.env.MONGO_CONNECTIO_URL
+ mongoose.connect(url, {
         useNewUrlParser: true,
         useUnifiedTopology: true
     }).then(() => console.log("connection successful"))
@@ -82,7 +83,9 @@ app.set('views', path.join(__dirname, '/resources/views'))
 app.set('view engine', 'ejs')
 
 require('./routes/web')(app) 
-
+app.use((req,res)=>{
+    res.status(404).send('<h1>404, Page not found</h2>')
+})
 
 const server = app.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`)
